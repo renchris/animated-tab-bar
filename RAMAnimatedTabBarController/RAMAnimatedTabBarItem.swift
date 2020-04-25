@@ -49,8 +49,8 @@ open class RAMAnimatedTabBarItem: UITabBarItem {
     open var bgDefaultColor: UIColor = UIColor.clear // background color
     open var bgSelectedColor: UIColor = UIColor.clear
 
-    //  The current badge value
-    open var badge: RAMBadge? // use badgeValue to show badge
+//    //  The current badge value
+//    open var badge: RAMBadge? // use badgeValue to show badge
 
     // Container for icon and text in UITableItem.
     open var iconView: (icon: UIImageView, textLabel: UILabel)?
@@ -107,28 +107,29 @@ open class RAMAnimatedTabBarItem: UITabBarItem {
 }
 
 
-// MARK: Custom Badge
-extension RAMAnimatedTabBarItem {
-
-    /// The current badge value
-    open override var badgeValue: String? {
-        get {
-            return badge?.text
-        }
-        set(newValue) {
-
-            if newValue == nil {
-                badge?.removeFromSuperview()
-                badge = nil
-                return
-            }
-
-            if let iconView = iconView, let contanerView = iconView.icon.superview, badge == nil {
-                badge = RAMBadge.badge()
-                badge?.addBadgeOnView(contanerView)
-            }
-
-            badge?.text = newValue
-        }
-    }
-}
+//// MARK: Custom Badge
+//extension RAMAnimatedTabBarItem {
+//
+//    /// The current badge value
+//    open override var badgeValue: String? {
+//        get {
+//            print("get function from badgeValue in RAMAnimatedTabBarItem class")
+//            return badge?.text
+//        }
+//        set(newValue) {
+//            print("set function from badgeValue in RAMAnimatedTabBarItem class")
+//            if newValue == nil {
+//                badge?.removeFromSuperview()
+//                badge = nil
+//                return
+//            }
+//
+//            if let iconView = iconView, let contanerView = iconView.icon.superview, badge == nil {
+//                badge = RAMBadge.badge()
+//                badge?.addBadgeOnView(contanerView)
+//            }
+//
+//            badge?.text = newValue
+//        }
+//    }
+//}

@@ -260,7 +260,14 @@ open class RAMAnimatedTabBarController: UITabBarController {
             currentContainer?.backgroundColor = items[currentIndex].bgSelectedColor
 
             selectedIndex = index
+            
+        //this runs when currently selected item is selected again
         } else {
+            
+            //play animiation even if already selected
+            let currentItem: RAMAnimatedTabBarItem = items[currentIndex]
+            currentItem.playAnimation()
+            
             if let navVC = viewControllers?[selectedIndex] as? UINavigationController {
                 navVC.popToRootViewController(animated: true)
             }
